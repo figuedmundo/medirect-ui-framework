@@ -1,23 +1,36 @@
-// src/pages/BasePage.ts
-import { Page } from '@playwright/test';
-import { Logger } from '../utils/Logger';
+import {Page} from '@playwright/test';
+import {Button} from "../controls/Button";
+import {SelectorBy} from "../controls/SelectorBy";
+import {Component} from "../controls/Component";
+import {TextBox} from "../controls/TextBox";
 
 export class BasePage {
     protected page: Page;
-    protected logger: Logger;
+    protected url?: string;
 
-    constructor(page: Page) {
+
+    constructor(page: Page, url?: string) {
         this.page = page;
-        this.logger = new Logger();
+        this.url = url;
     }
 
-    async navigate(url: string) {
-        this.logger.log(`Navigating to ${url}`);
-        await this.page.goto(url);
+    async navigate() {
+        if (this.url) {
+            await this.page.goto(this.url);
+        } else {
+            throw new Error('URL not set');
+        }
     }
 
-    async waitForElement(locator: string) {
-        this.logger.log(`Waiting for element: ${locator}`);
-        await this.page.waitForSelector(locator);
+    title(): TextBox {
+        return new TextBox(this.page, SelectorBy.CSS, "h1.elementor-heading-title", "Title");
+    }
+
+    acceptCookiesButton(): Button {
+        return new Button(this.page, SelectorBy.CSS, "div.iubenda-cs-container .iubenda-cs-accept-btn", "Accept cookies")
+    }
+
+    cookiesBox(): Component {
+        return new Component(this.page, SelectorBy.CSS, "div.iubenda-cs-container", "Cookies box")
     }
 }

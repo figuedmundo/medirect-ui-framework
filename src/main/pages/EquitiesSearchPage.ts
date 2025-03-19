@@ -1,8 +1,8 @@
-// src/pages/EquitiesSearchPage.ts
 import { Page } from '@playwright/test';
 import { BasePage } from './BasePage';
-import { Button } from '../controls/Button';
 import { SelectorBy } from '../controls/SelectorBy';
+import {ResultList} from "../controls/ResultList";
+import {InputBox} from "../controls/InputBox";
 
 export class EquitiesSearchPage extends BasePage {
 
@@ -11,7 +11,11 @@ export class EquitiesSearchPage extends BasePage {
   }
 
   // Method to return a Button instance for the Sign In button
-  signInButton(): Button {
-    return new Button(this.page, SelectorBy.XPATH, "//button[./span[contains(text(),'Sign In')]]", "Sign In");
+  resultList(): ResultList {
+    return new ResultList(this.page, SelectorBy.CSS, "table.me-tbl", "Equities");
+  }
+
+  searchBox(): InputBox {
+    return new InputBox(this.page, SelectorBy.CSS, "input[placeholder*='Enter']", "Search Box");
   }
 }

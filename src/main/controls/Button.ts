@@ -4,7 +4,7 @@ import { SelectorBy } from './SelectorBy';
 
 export class Button extends Component {
     constructor(page: Page, selectorBy: SelectorBy, selector: string, description?: string) {
-        super(page, selectorBy, selector, description);
+        super(page, selectorBy, selector, description, "Button");
     }
 
     async click() {

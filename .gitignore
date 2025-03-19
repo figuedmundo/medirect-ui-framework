@@ -131,3 +131,4 @@ dist/
 .idea/
 .vscode/
 playwright-report/
+test-results.json

@@ -1,4 +1,3 @@
-// src/controls/SelectorBy.ts
 export enum SelectorBy {
     ID = 'ID',
     CSS = 'CSS',
