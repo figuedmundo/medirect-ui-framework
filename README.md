@@ -146,4 +146,12 @@ The tests are organized as follows:
 - Tests: Located in src/tests/.
   - equities.spec.ts: Contains all test cases for the equities search page.
 
+---
 
+## CI/CD Integration
+
+This project includes a GitHub Actions workflow for running and testing the project in a CI/CD pipeline.
+
+The latest run can be found in the Actions tab of the repository.
+
+---
