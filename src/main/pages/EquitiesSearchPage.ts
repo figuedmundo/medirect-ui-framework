@@ -10,11 +10,12 @@ export class EquitiesSearchPage extends BasePage {
     super(page);
   }
 
-  // Method to return a Button instance for the Sign In button
+  // Result list of the Equities Search Page
   resultList(): ResultList {
     return new ResultList(this.page, SelectorBy.CSS, "table.me-tbl", "Equities");
   }
 
+  // Search box
   searchBox(): InputBox {
     return new InputBox(this.page, SelectorBy.CSS, "input[placeholder*='Enter']", "Search Box");
   }
