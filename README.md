@@ -28,10 +28,10 @@ Before running the tests, ensure the following tools and dependencies are instal
    ```bash
    npm install
    ```
-
-   This will install the following key dependencies:
-    - `@playwright/test`
-    - `typescript`
+3. **Install Playwright Browsers**
+```bash
+npx playwright install
+````
 
 ---
 ## Framework Design
@@ -121,7 +121,7 @@ After running the tests, an HTML report is generated. To view it, run:
 This will open the report in your default browser.
 
 ### JSON Report
-A JSON report is also generated and saved as test-results.json in the project root. You can use this file for further analysis or integration with CI/CD pipelines.
+A JSON report is also generated and saved as test-results.json in the project root. 
 
 ---
 
